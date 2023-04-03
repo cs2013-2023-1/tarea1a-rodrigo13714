@@ -61,6 +61,7 @@ float Matriz2D::get(int i, int j){
 }
 
 int Matriz2D::getFilas(){
+    int lleno;
     return filas;
 }
 
