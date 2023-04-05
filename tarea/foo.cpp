@@ -17,7 +17,7 @@ Matriz2D::Matriz2D(int n){
     }
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
-            ptr[i][j] = rand() % 11/10.0;
+            ptr[i][j] = rand() % 11/10.00001;
         }
     }
 
@@ -33,7 +33,7 @@ Matriz2D::Matriz2D(int n, int m){
     }
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j++){
-            ptr[i][j] = rand() %11/0.1;
+            ptr[i][j] = rand() %11/10.0;
         }
     }
 
