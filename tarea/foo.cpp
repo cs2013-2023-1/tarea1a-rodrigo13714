@@ -1,5 +1,6 @@
 #include "foo.h"
 
+
 Matriz2D::Matriz2D(){
     // Constructor por defecto
 
@@ -32,7 +33,7 @@ Matriz2D::Matriz2D(int n, int m){
         }
     for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
-                ptr[i][j] = rand() %11/10.00;
+                ptr[i][j] = rand() %11/10.0;
             }
         }    
 
@@ -82,6 +83,7 @@ Matriz2D t(Matriz2D& m){
 
 std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
     // Sobrecarga del operador <<
+
     for (int i = 0; i < m.filas; i++)
     {
         for (int j = 0; j < m.columnas; j++)
@@ -101,6 +103,7 @@ Matriz2D operator+(const Matriz2D& m1, const Matriz2D& m2){
             result.ptr[i][j]=m1.ptr[i][j] + m2.ptr[i][j];
         }
     }
+    return result;
 }
 
 Matriz2D operator-(const Matriz2D& m1, const Matriz2D& m2){
@@ -111,6 +114,7 @@ Matriz2D operator-(const Matriz2D& m1, const Matriz2D& m2){
             result.ptr[i][j]=m1.ptr[i][j] - m2.ptr[i][j];
         }
     }
+    return result;
 }
 
 Matriz2D operator*(const Matriz2D& m1, const Matriz2D& m2){
@@ -121,6 +125,7 @@ Matriz2D operator*(const Matriz2D& m1, const Matriz2D& m2){
             result.ptr[i][j]=m1.ptr[i][j] * m2.ptr[i][j];
         }
     }
+    return result;
 }
 
 Matriz2D operator+(const Matriz2D& m, float n){
@@ -131,6 +136,7 @@ Matriz2D operator+(const Matriz2D& m, float n){
             result.ptr[i][j]=m.ptr[i][j] + n;
         }
     }
+    return result;
 }
 
 Matriz2D operator-(const Matriz2D& m, float n){
@@ -141,6 +147,7 @@ Matriz2D operator-(const Matriz2D& m, float n){
             result.ptr[i][j]=m.ptr[i][j] + n;
         }
     }
+    return result;
 }
 
 Matriz2D operator*(const Matriz2D& m, float n){
@@ -151,6 +158,7 @@ Matriz2D operator*(const Matriz2D& m, float n){
             result.ptr[i][j]=m.ptr[i][j] * n;
         }
     }
+    return result;
 }
 
 Matriz2D operator/(const Matriz2D& m, float n){
@@ -161,6 +169,7 @@ Matriz2D operator/(const Matriz2D& m, float n){
             result.ptr[i][j]=m.ptr[i][j] / n;
         }
     }
+    return result;
 }
 
 float Matriz2D::get(int i, int j){
