@@ -1,5 +1,5 @@
 #include "foo.h"
-
+#include <iomanip>
 
 Matriz2D::Matriz2D(){
     // Constructor por defecto
@@ -12,14 +12,14 @@ Matriz2D::Matriz2D(int n){
     // Constructor con un parametro
     this->filas=n;
     ptr = new float*[n];
-        for(int i = 0; i < n; i++){
-            ptr[i] = new float[n];
-        }
     for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++){
-                ptr[i][j] = rand() % 11/10.0;
-            }
-        }    
+        ptr[i] = new float[n];
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            ptr[i][j] = rand() % 11/10.0;
+        }
+    }
 
 }
 
@@ -28,14 +28,14 @@ Matriz2D::Matriz2D(int n, int m){
     this->filas=n;
     this->columnas=m;
     ptr = new float*[n];
-        for(int i = 0; i < n; i++){
-            ptr[i] = new float[m];
-        }
     for(int i = 0; i < n; i++){
-            for(int j = 0; j < m; j++){
-                ptr[i][j] = rand() %11/10.0;
-            }
-        }    
+        ptr[i] = new float[m];
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            ptr[i][j] = rand() %11/0.1;
+        }
+    }
 
 }
 
@@ -57,8 +57,8 @@ Matriz2D::Matriz2D(const Matriz2D& m){
 Matriz2D::Matriz2D(Matriz2D&& m){
     // Constructor de movimiento
     this->filas = m.filas;
-        columnas = m.columnas;
-        m.columnas = NULL;
+    columnas = m.columnas;
+    m.columnas = 0;
     ptr = new float*[filas];
     for(int i = 0; i < filas; i++){
         ptr[i] = new float[columnas];
@@ -72,13 +72,15 @@ Matriz2D::Matriz2D(Matriz2D&& m){
 
 Matriz2D t(Matriz2D& m){
     // Transpuesta de una matriz
-    for (int i = 0; i < m.filas; i++)
+    Matriz2D result(m.columnas,m.filas);
+    for (int i = 0; i < m.columnas; i++)
     {
-        for (int j = 0; j < m.columnas; j++)
+        for (int j = 0; j < m.filas; j++)
         {
-            m.ptr[i][j]=m.ptr[j][i];
+            result.ptr[i][j]=m.ptr[j][i];
         }
     }
+    return result;
 }
 
 std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
@@ -88,7 +90,7 @@ std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
     {
         for (int j = 0; j < m.columnas; j++)
         {
-            os << " " << m.ptr[i][j];
+            os << setw(4) << m.ptr[i][j];
         }
         os << endl;
     }

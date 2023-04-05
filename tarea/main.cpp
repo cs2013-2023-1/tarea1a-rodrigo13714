@@ -13,6 +13,8 @@ int main(){
     Matriz2D m1;            // Matriz cuadrada de 3x3
     Matriz2D m2(5);         // Matriz cuadrada de 5x5
     Matriz2D m3(5,2);       // Matriz cuadrada de 5x2
+    Matriz2D m6 = t(m3);
+    cout << m3<<endl;
+   
 
-    cout << m3;
 }
