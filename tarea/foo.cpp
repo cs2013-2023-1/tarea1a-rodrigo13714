@@ -17,7 +17,7 @@ Matriz2D::Matriz2D(int n){
     }
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
-            ptr[i][j] = rand() % 11/10.00001;
+            ptr[i][j] = rand() % 11/10.0;
         }
     }
 
@@ -99,35 +99,46 @@ std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
 
 Matriz2D operator+(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador +
-    Matriz2D result(m1.filas,m1.columnas);
-    for (int i=0;i<m1.filas;i++){
-        for (int j=0;j<m1.columnas;j++){
-            result.ptr[i][j]=m1.ptr[i][j] + m2.ptr[i][j];
+
+    if ((m1.filas==m2.filas)&&(m1.columnas==m2.columnas)) {
+        Matriz2D result(m1.filas,m1.columnas);
+        for (int i = 0; i < m1.filas; i++) {
+            for (int j = 0; j < m1.columnas; j++) {
+                result.ptr[i][j] = m1.ptr[i][j] + m2.ptr[i][j];
+            }
         }
+        return result;
     }
-    return result;
+
 }
 
 Matriz2D operator-(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador -
-    Matriz2D result(m1.filas,m1.columnas);
-    for (int i=0;i<m1.filas;i++){
-        for (int j=0;j<m1.columnas;j++){
-            result.ptr[i][j]=m1.ptr[i][j] - m2.ptr[i][j];
+    
+    if ((m1.filas==m2.filas)&&(m1.columnas==m2.columnas)) {
+        Matriz2D result(m1.filas,m1.columnas);
+        for (int i = 0; i < m1.filas; i++) {
+            for (int j = 0; j < m1.columnas; j++) {
+                result.ptr[i][j] = m1.ptr[i][j] - m2.ptr[i][j];
+            }
         }
+        return result;
     }
-    return result;
 }
 
 Matriz2D operator*(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador *
-    Matriz2D result(m1.filas,m1.columnas);
-    for (int i=0;i<m1.filas;i++){
-        for (int j=0;j<m1.columnas;j++){
-            result.ptr[i][j]=m1.ptr[i][j] * m2.ptr[i][j];
+    
+    if ((m1.filas==m2.filas)&&(m1.columnas==m2.columnas)) {
+        Matriz2D result(m1.filas,m1.columnas);
+        for (int i = 0; i < m1.filas; i++) {
+            for (int j = 0; j < m1.columnas; j++) {
+                result.ptr[i][j] = m1.ptr[i][j] * m2.ptr[i][j];
+            }
         }
+        return result;
     }
-    return result;
+
 }
 
 Matriz2D operator+(const Matriz2D& m, float n){
