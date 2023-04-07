@@ -4,8 +4,8 @@
 Matriz2D::Matriz2D(){
     // Constructor por defecto
 
-    this->filas=0;
-    this->columnas=0;
+    this->filas=3;
+    this->columnas=3;
 }
 
 Matriz2D::Matriz2D(int n){
