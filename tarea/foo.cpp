@@ -10,6 +10,8 @@ Matriz2D::Matriz2D(){
 
 Matriz2D::Matriz2D(int n){
     // Constructor con un parametro
+    this->filas=n;
+    this->columnas=n;
     ptr = new float*[n];
     for(int i = 0; i < n; i++){
         ptr[i] = new float[n];
