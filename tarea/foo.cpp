@@ -6,6 +6,15 @@ Matriz2D::Matriz2D(){
 
     this->filas=3;
     this->columnas=3;
+    ptr = new float*[filas];
+    for(int i = 0; i < filas; i++){
+        ptr[i] = new float[columnas];
+    }
+    for(int i = 0; i < filas; i++){
+        for(int j = 0; j < columnas; j++){
+            ptr[i][j] = rand() % 11/10.0;
+        }
+    }
 }
 
 Matriz2D::Matriz2D(int n){
